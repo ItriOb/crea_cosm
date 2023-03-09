@@ -14,7 +14,13 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/home' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
+        '/' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\RacineController::index'], null, null, null, false, false, null]],
+        '/accueil' => [[['_route' => 'app_accueil', '_controller' => 'App\\Controller\\RacineController::accueil'], null, null, null, false, false, null]],
+        '/signin' => [[['_route' => 'app_connexion', '_controller' => 'App\\Controller\\RacineController::signin'], null, null, null, false, false, null]],
+        '/signup' => [[['_route' => 'app_incription', '_controller' => 'App\\Controller\\RacineController::signup'], null, null, null, false, false, null]],
+        '/moncompte' => [[['_route' => 'app_moncompte', '_controller' => 'App\\Controller\\RacineController::account'], null, null, null, false, false, null]],
+        '/sondage' => [[['_route' => 'app_sondage', '_controller' => 'App\\Controller\\SondageController::index'], null, null, null, true, false, null]],
+        '/sondage/modifier' => [[['_route' => 'app_creation', '_controller' => 'App\\Controller\\SondageController::modify'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

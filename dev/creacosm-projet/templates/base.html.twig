@@ -14,6 +14,14 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <a href="{{ path('app_accueil') }}">Accueil</a>
+        <a href="{{ path('app_sondage') }}">Sondages</a>
+        <a href="{{ path('app_moncompte') }}">Mon compte</a>
+        <a href="{{ path('app_connexion') }}">Connexion</a>
+        <a href="{{ path('app_incription') }}">Inscription</a>
+
+        {% block body %}
+        {% endblock %}
     </body>
 </html>
+

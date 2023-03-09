@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* home/index.html.twig */
+/* home/accueil.html.twig */
 class __TwigTemplate_fe19c9f495d20f076c3a801e1d41d6f0 extends Template
 {
     private $source;
@@ -40,12 +40,12 @@ class __TwigTemplate_fe19c9f495d20f076c3a801e1d41d6f0 extends Template
     {
         $macros = $this->macros;
         $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/index.html.twig"));
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/accueil.html.twig"));
 
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/index.html.twig"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/accueil.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "home/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "home/accueil.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -104,8 +104,8 @@ class __TwigTemplate_fe19c9f495d20f076c3a801e1d41d6f0 extends Template
         echo "\">src/Controller/HomeController.php</a></code></li>
         <li>Your template at <code><a href=\"";
         // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("/var/www/html/creacosm-projet/templates/home/index.html.twig", 0), "html", null, true);
-        echo "\">templates/home/index.html.twig</a></code></li>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("/var/www/html/creacosm-projet/templates/home/accueil.html.twig", 0), "html", null, true);
+        echo "\">templates/home/accueil.html.twig</a></code></li>
     </ul>
 </div>
 ";
@@ -119,7 +119,7 @@ class __TwigTemplate_fe19c9f495d20f076c3a801e1d41d6f0 extends Template
 
     public function getTemplateName()
     {
-        return "home/index.html.twig";
+        return "home/accueil.html.twig";
     }
 
     public function isTraitable()
@@ -150,10 +150,10 @@ class __TwigTemplate_fe19c9f495d20f076c3a801e1d41d6f0 extends Template
     This friendly message is coming from:
     <ul>
         <li>Your controller at <code><a href=\"{{ '/var/www/html/creacosm-projet/src/Controller/HomeController.php'|file_link(0) }}\">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ '/var/www/html/creacosm-projet/templates/home/index.html.twig'|file_link(0) }}\">templates/home/index.html.twig</a></code></li>
+        <li>Your template at <code><a href=\"{{ '/var/www/html/creacosm-projet/templates/home/accueil.html.twig'|file_link(0) }}\">templates/home/accueil.html.twig</a></code></li>
     </ul>
 </div>
 {% endblock %}
-", "home/index.html.twig", "/var/www/html/creacosm-projet/templates/home/index.html.twig");
+", "home/accueil.html.twig", "/var/www/html/creacosm-projet/templates/home/accueil.html.twig");
     }
 }

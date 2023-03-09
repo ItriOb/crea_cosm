@@ -16,5 +16,11 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
-    'app_home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/home']], [], [], []],
+    'app_index' => [[], ['_controller' => 'App\\Controller\\RacineController::index'], [], [['text', '/']], [], [], []],
+    'app_accueil' => [[], ['_controller' => 'App\\Controller\\RacineController::accueil'], [], [['text', '/accueil']], [], [], []],
+    'app_connexion' => [[], ['_controller' => 'App\\Controller\\RacineController::signin'], [], [['text', '/signin']], [], [], []],
+    'app_incription' => [[], ['_controller' => 'App\\Controller\\RacineController::signup'], [], [['text', '/signup']], [], [], []],
+    'app_moncompte' => [[], ['_controller' => 'App\\Controller\\RacineController::account'], [], [['text', '/moncompte']], [], [], []],
+    'app_sondage' => [[], ['_controller' => 'App\\Controller\\SondageController::index'], [], [['text', '/sondage/']], [], [], []],
+    'app_creation' => [[], ['_controller' => 'App\\Controller\\SondageController::modify'], [], [['text', '/sondage/modifier']], [], [], []],
 ];

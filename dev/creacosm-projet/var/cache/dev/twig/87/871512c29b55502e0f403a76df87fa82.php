@@ -65,12 +65,34 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
         // line 15
         echo "    </head>
     <body>
-        ";
+        <a href=\"";
         // line 17
-        $this->displayBlock('body', $context, $blocks);
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_accueil");
+        echo "\">Accueil</a>
+        <a href=\"";
         // line 18
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_sondage");
+        echo "\">Sondages</a>
+        <a href=\"";
+        // line 19
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_moncompte");
+        echo "\">Mon compte</a>
+        <a href=\"";
+        // line 20
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_connexion");
+        echo "\">Connexion</a>
+        <a href=\"";
+        // line 21
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_incription");
+        echo "\">Inscription</a>
+
+        ";
+        // line 23
+        $this->displayBlock('body', $context, $blocks);
+        // line 25
         echo "    </body>
 </html>
+
 ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -145,7 +167,7 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
 
     }
 
-    // line 17
+    // line 23
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -155,6 +177,8 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        // line 24
+        echo "        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -168,9 +192,14 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  149 => 17,  136 => 13,  126 => 12,  113 => 9,  103 => 8,  84 => 5,  72 => 18,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  181 => 24,  171 => 23,  158 => 13,  148 => 12,  135 => 9,  125 => 8,  106 => 5,  93 => 25,  91 => 23,  86 => 21,  82 => 20,  78 => 19,  74 => 18,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -191,9 +220,17 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <a href=\"{{ path('app_accueil') }}\">Accueil</a>
+        <a href=\"{{ path('app_sondage') }}\">Sondages</a>
+        <a href=\"{{ path('app_moncompte') }}\">Mon compte</a>
+        <a href=\"{{ path('app_connexion') }}\">Connexion</a>
+        <a href=\"{{ path('app_incription') }}\">Inscription</a>
+
+        {% block body %}
+        {% endblock %}
     </body>
 </html>
+
 ", "base.html.twig", "/var/www/html/creacosm-projet/templates/base.html.twig");
     }
 }
