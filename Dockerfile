@@ -1,8 +1,7 @@
 FROM php:8-fpm-alpine
+
 ARG GOODUSER
 ARG UID
-ARG MAIL
-ARG NOM
 
 RUN echo "$GOODUSER($UID):$GROUP($GID)"
 
@@ -19,13 +18,18 @@ RUN wget https://get.symfony.com/cli/installer -O - | bash \
 && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 
 # Gestion user
-RUN echo "UID_MAX $UID" > /etc/login.defs
-RUN /usr/sbin/useradd --create-home -s /bin/sh -u "$UID" $GOODUSER
-USER $GOODUSER
+# RUN echo "UID_MAX $UID" > /etc/login.defs
+# RUN /usr/sbin/useradd --create-home -s /bin/sh -u "$UID" $GOODUSER
+# USER $GOODUSER
 
 # config git
-RUN git config --global user.email $MAIL
-RUN git config --global user.name $NOM
+# RUN git config --global user.email $MAIL
+# RUN git config --global user.name $NOM
 
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/install-php-extensions && \
+    install-php-extensions pdo_pgsql pgsql
 
 WORKDIR /var/www/html
+CMD symfony server:start --no-tls

@@ -6,13 +6,20 @@ services:
       dockerfile: Dockerfile
       args:
         GOODUSER: Creacosm
-        UID: 1001
+        UID: 1000
         MAIL: wassim.oulhadj@etu.univ-orleans.fr
         NOM: "Wassim"
     container_name: Wassim-Oulhadj-container
     volumes:
-    - ./dev:/var/www/html
+      - ./dev:/var/www/html
     ports:
-    - "5000:8000"
+      - "5000:8000"
     environment:
       PHP_IDE_CONFIG: serverName=toto
+  database:
+    image: postgres:${POSTGRES_VERSION:-15}-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-dbcreacosm}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-1234}
+      POSTGRES_USER: ${POSTGRES_USER:-user}
+    restart: always
