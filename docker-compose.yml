@@ -5,11 +5,11 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        GOODUSER: Creacosm
+        GOODUSER: tristan
         UID: 1000
         MAIL: wassim.oulhadj@etu.univ-orleans.fr
-        NOM: "Wassim"
-    container_name: Wassim-Oulhadj-container
+        NOM: "tristan"
+    container_name: container
     volumes:
       - ./dev:/var/www/html
     ports:

@@ -1,0 +1,4 @@
+a0847a,172.20.0.1,GET,http://localhost:5000/,1678479074,,200
+59438f,172.20.0.1,GET,http://localhost:5000/accueil,1678479141,,200
+546d49,172.20.0.1,GET,http://localhost:5000/sondage/,1678479143,0f1b98,500
+0f1b98,172.20.0.1,GET,http://localhost:5000/sondage/,1678479143,,500
