@@ -21,6 +21,9 @@ return [
     'app_connexion' => [[], ['_controller' => 'App\\Controller\\RacineController::signin'], [], [['text', '/signin']], [], [], []],
     'app_incription' => [[], ['_controller' => 'App\\Controller\\RacineController::signup'], [], [['text', '/signup']], [], [], []],
     'app_moncompte' => [[], ['_controller' => 'App\\Controller\\RacineController::account'], [], [['text', '/moncompte']], [], [], []],
+    'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
+    'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
+    'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
     'app_sondage' => [[], ['_controller' => 'App\\Controller\\SondageController::index'], [], [['text', '/sondage/']], [], [], []],
     'app_creation' => [[], ['_controller' => 'App\\Controller\\SondageController::modify'], [], [['text', '/sondage/modifier']], [], [], []],
 ];
