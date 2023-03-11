@@ -3,5 +3,33 @@
 {% block title %}Sondages{% endblock %}
 
 {% block body %}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Introduction</th>
+        <th>Date Creation</th>
+        <th>Visibilite</th>
+    </tr>
+    </thead>
+    <tbody>
+        {%for sondage in sondages%}
+    <tr>
+
+        <td>{{ sondage.nom }}</td>
+        <td>
+            {{ sondage.introduction }}
+        </td>
+        <td>
+            {{ sondage.dateCreation |date("m/d/Y") }}
+        </td>
+        <td>
+            {{ sondage.visbilite }}
+        </td>
+
+        {% endfor %}
+
+    </tbody>
+</table>
 
 {% endblock %}

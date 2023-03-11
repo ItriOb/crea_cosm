@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\SondageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,17 +12,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class SondageController extends AbstractController
 {
     #[Route('/', name: 'app_sondage')]
-    public function index(): Response
+    public function index(SondageRepository $sondageRepository): Response
     {
-        return $this->render('accueil.html.twig', [
+        $sondages = $sondageRepository->findAll();
+        return $this->render('sondage/sondages.html.twig', [
             'controller_name' => 'SondageController',
+            'sondages'=> $sondages
         ]);
     }
 
     #[Route('/creer', name: 'app_creation')]
     public function create(): Response
     {
-        return $this->render('accueil.html.twig', [
+        return $this->render('home/accueil.html.twig', [
             'controller_name' => 'SondageController',
         ]);
     }
@@ -29,7 +32,7 @@ class SondageController extends AbstractController
     #[Route('/repondre', name: 'app_creation')]
     public function answer(): Response
     {
-        return $this->render('accueil.html.twig', [
+        return $this->render('home/accueil.html.twig', [
             'controller_name' => 'SondageController',
         ]);
     }
@@ -37,7 +40,7 @@ class SondageController extends AbstractController
     #[Route('/modifier', name: 'app_creation')]
     public function modify(): Response
     {
-        return $this->render('accueil.html.twig', [
+        return $this->render('home/accueil.html.twig', [
             'controller_name' => 'SondageController',
         ]);
     }
