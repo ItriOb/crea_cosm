@@ -73,23 +73,39 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
         // line 18
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_sondage");
         echo "\">Sondages</a>
-        <a href=\"";
-        // line 19
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_moncompte");
-        echo "\">Mon compte</a>
-        <a href=\"";
-        // line 20
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_connexion");
-        echo "\">Connexion</a>
-        <a href=\"";
-        // line 21
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_incription");
-        echo "\">Inscription</a>
 
         ";
-        // line 23
+        // line 20
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 20, $this->source); })()), "user", [], "any", false, false, false, 20)) {
+            // line 21
+            echo "            <a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_moncompte");
+            echo "\">Mon compte</a>
+            <a href=\"";
+            // line 22
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\">Déconnexion</a>
+        ";
+        } else {
+            // line 24
+            echo "            <a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\">Connexion</a>
+            <a href=\"";
+            // line 25
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_incription");
+            echo "\">Inscription</a>
+        ";
+        }
+        // line 27
+        echo "
+
+
+
+        ";
+        // line 31
         $this->displayBlock('body', $context, $blocks);
-        // line 25
+        // line 33
         echo "    </body>
 </html>
 
@@ -167,7 +183,7 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
 
     }
 
-    // line 23
+    // line 31
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -177,7 +193,7 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 24
+        // line 32
         echo "        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -199,7 +215,7 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  181 => 24,  171 => 23,  158 => 13,  148 => 12,  135 => 9,  125 => 8,  106 => 5,  93 => 25,  91 => 23,  86 => 21,  82 => 20,  78 => 19,  74 => 18,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  197 => 32,  187 => 31,  174 => 13,  164 => 12,  151 => 9,  141 => 8,  122 => 5,  109 => 33,  107 => 31,  101 => 27,  96 => 25,  91 => 24,  86 => 22,  81 => 21,  79 => 20,  74 => 18,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -222,9 +238,17 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
     <body>
         <a href=\"{{ path('app_accueil') }}\">Accueil</a>
         <a href=\"{{ path('app_sondage') }}\">Sondages</a>
-        <a href=\"{{ path('app_moncompte') }}\">Mon compte</a>
-        <a href=\"{{ path('app_connexion') }}\">Connexion</a>
-        <a href=\"{{ path('app_incription') }}\">Inscription</a>
+
+        {% if app.user %}
+            <a href=\"{{ path('app_moncompte') }}\">Mon compte</a>
+            <a href=\"{{ path('app_logout') }}\">Déconnexion</a>
+        {% else %}
+            <a href=\"{{ path('app_login') }}\">Connexion</a>
+            <a href=\"{{ path('app_incription') }}\">Inscription</a>
+        {% endif %}
+
+
+
 
         {% block body %}
         {% endblock %}

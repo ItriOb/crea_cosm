@@ -32,3 +32,4 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
     install-php-extensions pdo_pgsql pgsql
 
 WORKDIR /var/www/html
+
