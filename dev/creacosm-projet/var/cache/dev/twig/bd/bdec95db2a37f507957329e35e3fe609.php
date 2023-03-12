@@ -122,8 +122,19 @@ class __TwigTemplate_15355733e5588ebbb9989fc47e9a3156 extends Template
         <td>
             ";
             // line 27
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sondage"], "visbilite", [], "any", false, false, false, 27), "html", null, true);
-            echo "
+            if (twig_get_attribute($this->env, $this->source, $context["sondage"], "visbilite", [], "any", false, false, false, 27)) {
+                // line 28
+                echo "            Public
+            ";
+            } else {
+                // line 30
+                echo "            Prive
+            ";
+            }
+            // line 32
+            echo "        </td>
+        <td>
+            <button type=\"input\">Repondre</button>
         </td>
 
         ";
@@ -131,7 +142,7 @@ class __TwigTemplate_15355733e5588ebbb9989fc47e9a3156 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sondage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 38
         echo "
     </tbody>
 </table>
@@ -157,7 +168,7 @@ class __TwigTemplate_15355733e5588ebbb9989fc47e9a3156 extends Template
 
     public function getDebugInfo()
     {
-        return array (  135 => 31,  125 => 27,  119 => 24,  113 => 21,  108 => 19,  104 => 17,  100 => 16,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  146 => 38,  135 => 32,  131 => 30,  127 => 28,  125 => 27,  119 => 24,  113 => 21,  108 => 19,  104 => 17,  100 => 16,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -188,7 +199,14 @@ class __TwigTemplate_15355733e5588ebbb9989fc47e9a3156 extends Template
             {{ sondage.dateCreation |date(\"m/d/Y\") }}
         </td>
         <td>
-            {{ sondage.visbilite }}
+            {% if sondage.visbilite %}
+            Public
+            {% else %}
+            Prive
+            {% endif %}
+        </td>
+        <td>
+            <button type=\"input\">Repondre</button>
         </td>
 
         {% endfor %}

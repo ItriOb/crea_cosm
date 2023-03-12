@@ -22,7 +22,7 @@ class UserFixtures extends Fixture
 
         $user = new Utilisateur();
         $user->setPassword($this->passwordHasher->hashPassword($user, "admin"))
-            ->setLogin("amin")
+            ->setLogin("admin")
             ->setVille("Orleans")
             ->setName("Admin")
             ->setPrenom("Admin")

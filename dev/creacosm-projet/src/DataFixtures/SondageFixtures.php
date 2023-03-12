@@ -12,13 +12,16 @@ class SondageFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
+        $faker = \Faker\Factory::create("fr_FR");
+        for($i=1; $i<=10; $i++) {
 
-        $sondage = new Sondage();
-        $sondage->setNom("Sondage 1")
-            ->setVisbilite(True)
-            ->setIntroduction("Wesh bien ")
-            ->setDateCreation(new \DateTime('now'));
-        $manager->persist($sondage);
+            $sondage = new Sondage();
+            $sondage->setNom($faker->name)
+                ->setVisbilite(True)
+                ->setIntroduction($faker->sentence)
+                ->setDateCreation(new \DateTime('now'));
+            $manager->persist($sondage);
+        }
         $manager->flush();
     }
 }

@@ -24,7 +24,14 @@
             {{ sondage.dateCreation |date("m/d/Y") }}
         </td>
         <td>
-            {{ sondage.visbilite }}
+            {% if sondage.visbilite %}
+            Public
+            {% else %}
+            Prive
+            {% endif %}
+        </td>
+        <td>
+            <button type="input">Repondre</button>
         </td>
 
         {% endfor %}
