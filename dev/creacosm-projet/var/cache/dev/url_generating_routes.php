@@ -23,6 +23,10 @@ return [
     'app_moncompte' => [[], ['_controller' => 'App\\Controller\\RacineController::account'], [], [['text', '/moncompte']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
-    'app_sondage' => [[], ['_controller' => 'App\\Controller\\SondageController::index'], [], [['text', '/sondage/']], [], [], []],
-    'app_creation' => [[], ['_controller' => 'App\\Controller\\SondageController::modify'], [], [['text', '/sondage/modifier']], [], [], []],
+    'app_sondages_index' => [[], ['_controller' => 'App\\Controller\\SondagesController::index'], [], [['text', '/sondages/']], [], [], []],
+    'app_sondages_new' => [[], ['_controller' => 'App\\Controller\\SondagesController::new'], [], [['text', '/sondages/new']], [], [], []],
+    'app_sondages_show' => [['id'], ['_controller' => 'App\\Controller\\SondagesController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/sondages']], [], [], []],
+    'app_sondages_edit' => [['id'], ['_controller' => 'App\\Controller\\SondagesController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/sondages']], [], [], []],
+    'app_sondages_delete' => [['id'], ['_controller' => 'App\\Controller\\SondagesController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/sondages']], [], [], []],
+    'app_creation' => [[], ['_controller' => 'App\\Controller\\SondagesController::answer'], [], [['text', '/sondages/repondre']], [], [], []],
 ];

@@ -71,7 +71,7 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
         echo "\">Accueil</a>
         <a href=\"";
         // line 18
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_sondage");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_sondages_index");
         echo "\">Sondages</a>
 
         ";
@@ -237,7 +237,7 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
     </head>
     <body>
         <a href=\"{{ path('app_accueil') }}\">Accueil</a>
-        <a href=\"{{ path('app_sondage') }}\">Sondages</a>
+        <a href=\"{{ path('app_sondages_index') }}\">Sondages</a>
 
         {% if app.user %}
             <a href=\"{{ path('app_moncompte') }}\">Mon compte</a>

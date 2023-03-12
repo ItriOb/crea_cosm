@@ -355,11 +355,11 @@
         <argument type="service" id=".service_locator.CshazM0.App\Controller\SecurityController"/>
       </call>
     </service>
-    <service id="App\Controller\SondageController" class="App\Controller\SondageController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\SondagesController" class="App\Controller\SondagesController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.CshazM0.App\Controller\SondageController"/>
+        <argument type="service" id=".service_locator.CshazM0.App\Controller\SondagesController"/>
       </call>
     </service>
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
@@ -373,6 +373,9 @@
       <argument type="service" id="security.user_password_hasher"/>
     </service>
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\SondageType" class="App\Form\SondageType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\SondageRepository" class="App\Repository\SondageRepository" autowire="true" autoconfigure="true">
@@ -1228,6 +1231,7 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\RegistrationFormType</argument>
+        <argument>App\Form\SondageType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -3300,7 +3304,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.ZyXYEQR"/>
+      <argument type="service" id=".service_locator.iIL1VkR"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -6202,9 +6206,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SondageController" class="App\Controller\SondageController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SondageController" class="App\Controller\SondageController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\SondageController" class="App\Controller\SondageController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SondagesController" class="App\Controller\SondagesController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SondagesController" class="App\Controller\SondagesController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SondagesController" class="App\Controller\SondagesController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\SondageFixtures" class="App\DataFixtures\SondageFixtures" autowire="true" abstract="true"/>
@@ -6213,6 +6217,8 @@
     <service id=".abstract.instanceof.App\DataFixtures\UserFixtures" class="App\DataFixtures\UserFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SondageType" class="App\Form\SondageType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SondageType" class="App\Form\SondageType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SondageRepository" class="App\Repository\SondageRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\SondageRepository" class="App\Repository\SondageRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ThemeRepository" class="App\Repository\ThemeRepository" autowire="true" abstract="true"/>
@@ -6579,19 +6585,40 @@
         <argument key="sondageRepository" type="service_closure" id="App\Repository\SondageRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.byW5D1o" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.iJVNhnm" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="sondage" type="service_closure" id=".errored..service_locator.iJVNhnm.App\Entity\Sondage"/>
+      </argument>
+    </service>
+    <service id=".service_locator.I2DnaFa" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="sondage" type="service_closure" id=".errored..service_locator.I2DnaFa.App\Entity\Sondage"/>
+        <argument key="sondageRepository" type="service_closure" id="App\Repository\SondageRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.k7irLfO" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\RacineController::register" type="service_closure" id=".service_locator.9auUp_E"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.rSTd.nA"/>
-        <argument key="App\Controller\SondageController::index" type="service_closure" id=".service_locator.Roqezgm"/>
+        <argument key="App\Controller\SondagesController::delete" type="service_closure" id=".service_locator.I2DnaFa"/>
+        <argument key="App\Controller\SondagesController::edit" type="service_closure" id=".service_locator.I2DnaFa"/>
+        <argument key="App\Controller\SondagesController::index" type="service_closure" id=".service_locator.Roqezgm"/>
+        <argument key="App\Controller\SondagesController::new" type="service_closure" id=".service_locator.Roqezgm"/>
+        <argument key="App\Controller\SondagesController::show" type="service_closure" id=".service_locator.iJVNhnm"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Controller\RacineController:register" type="service_closure" id=".service_locator.9auUp_E"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.rSTd.nA"/>
-        <argument key="App\Controller\SondageController:index" type="service_closure" id=".service_locator.Roqezgm"/>
+        <argument key="App\Controller\SondagesController:delete" type="service_closure" id=".service_locator.I2DnaFa"/>
+        <argument key="App\Controller\SondagesController:edit" type="service_closure" id=".service_locator.I2DnaFa"/>
+        <argument key="App\Controller\SondagesController:index" type="service_closure" id=".service_locator.Roqezgm"/>
+        <argument key="App\Controller\SondagesController:new" type="service_closure" id=".service_locator.Roqezgm"/>
+        <argument key="App\Controller\SondagesController:show" type="service_closure" id=".service_locator.iJVNhnm"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
       </argument>
@@ -6766,10 +6793,11 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.ZyXYEQR" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.iIL1VkR" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
+        <argument key="App\Form\SondageType" type="service_closure" id="App\Form\SondageType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -7146,9 +7174,9 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.CshazM0" method="withContext"/>
     </service>
-    <service id=".service_locator.CshazM0.App\Controller\SondageController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\SondageController"/>
-      <argument>App\Controller\SondageController</argument>
+    <service id=".service_locator.CshazM0.App\Controller\SondagesController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\SondagesController"/>
+      <argument>App\Controller\SondagesController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.CshazM0" method="withContext"/>
     </service>
@@ -7429,12 +7457,12 @@
     <service id="debug.argument_resolver.request.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestValueResolver"/>
     <service id="debug.argument_resolver.session.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\SessionValueResolver"/>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.byW5D1o"/>
+      <argument type="service" id=".service_locator.k7irLfO"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.byW5D1o"/>
+      <argument type="service" id=".service_locator.k7irLfO"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -7454,6 +7482,8 @@
       </call>
     </service>
     <service id=".errored..service_locator.y4_Zrx..Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
+    <service id=".errored..service_locator.iJVNhnm.App\Entity\Sondage" class="App\Entity\Sondage"/>
+    <service id=".errored..service_locator.I2DnaFa.App\Entity\Sondage" class="App\Entity\Sondage"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -8401,7 +8431,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.7nzbL4K" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.byW5D1o"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.k7irLfO"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -8423,9 +8453,9 @@
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.o.uf2zi" alias=".service_locator.7nzbL4K"/>
     <service id=".service_locator.1TOvDxU" alias=".service_locator.9auUp_E"/>
-    <service id=".service_locator.PNuS0tR" alias=".service_locator.byW5D1o"/>
+    <service id=".service_locator.YjUSs6O" alias=".service_locator.k7irLfO"/>
     <service id=".service_locator.9XMoc9I" alias=".service_locator.kzegaci"/>
-    <service id=".service_locator.yj07qm_" alias=".service_locator.ZyXYEQR"/>
+    <service id=".service_locator.utzdv89" alias=".service_locator.iIL1VkR"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.VZoQk0z" alias=".service_locator.CshazM0"/>
@@ -8477,6 +8507,8 @@
     <service id=".service_locator.rbyy291" alias=".service_locator.9auUp_E"/>
     <service id=".service_locator.7NIAq8D" alias=".service_locator.rSTd.nA"/>
     <service id=".service_locator.Hc.SspF" alias=".service_locator.Roqezgm"/>
+    <service id=".service_locator.W_rPBfe" alias=".service_locator.iJVNhnm"/>
+    <service id=".service_locator.YTbQmhQ" alias=".service_locator.I2DnaFa"/>
     <service id=".service_locator.Kyflpr1" alias=".service_locator.CshazM0"/>
     <service id=".service_locator.u6DWx23" alias=".service_locator.cXsfP3P"/>
     <service id=".service_locator.hnz5ZNh" alias=".service_locator.0TACwl3"/>

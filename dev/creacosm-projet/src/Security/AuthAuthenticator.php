@@ -47,7 +47,7 @@ class AuthAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // For example:
-        return new RedirectResponse($this->urlGenerator->generate('app_sondage'));
+        return new RedirectResponse($this->urlGenerator->generate('app_sondages_index'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 

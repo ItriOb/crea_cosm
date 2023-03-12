@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sondage{% endblock %}
+
+{% block body %}
+    <h1>Sondage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sondage.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ sondage.nom }}</td>
+            </tr>
+            <tr>
+                <th>Visbilite</th>
+                <td>{{ sondage.visbilite ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Introduction</th>
+                <td>{{ sondage.introduction }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ sondage.dateCreation ? sondage.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sondages_index') }}">back to list</a>
+
+    <a href="{{ path('app_sondages_edit', {'id': sondage.id}) }}">edit</a>
+
+    {{ include('sondages/_delete_form.html.twig') }}
+{% endblock %}
