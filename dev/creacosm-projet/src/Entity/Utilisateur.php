@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UtilisateurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -46,6 +48,14 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private ?int $age = null;
+
+    #[ORM\ManyToMany(targetEntity: Sondage::class, inversedBy: 'utilisateurs')]
+    private Collection $sondages_repondu;
+
+    public function __construct()
+    {
+        $this->sondages_repondu = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -185,6 +195,30 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAge(int $age): self
     {
         $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Sondage>
+     */
+    public function getSondagesRepondu(): Collection
+    {
+        return $this->sondages_repondu;
+    }
+
+    public function addSondagesRepondu(Sondage $sondagesRepondu): self
+    {
+        if (!$this->sondages_repondu->contains($sondagesRepondu)) {
+            $this->sondages_repondu->add($sondagesRepondu);
+        }
+
+        return $this;
+    }
+
+    public function removeSondagesRepondu(Sondage $sondagesRepondu): self
+    {
+        $this->sondages_repondu->removeElement($sondagesRepondu);
 
         return $this;
     }

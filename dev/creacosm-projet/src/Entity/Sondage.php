@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SondageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +27,18 @@ class Sondage
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateCreation = null;
+
+    #[ORM\ManyToMany(targetEntity: Utilisateur::class, mappedBy: 'sondages_repondu')]
+    private Collection $utilisateurs;
+
+    #[ORM\ManyToOne(inversedBy: 'sondages_crees')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Admin $createur = null;
+
+    public function __construct()
+    {
+        $this->utilisateurs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,6 +89,45 @@ class Sondage
     public function setDateCreation(\DateTimeInterface $dateCreation): self
     {
         $this->dateCreation = $dateCreation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Utilisateur>
+     */
+    public function getUtilisateurs(): Collection
+    {
+        return $this->utilisateurs;
+    }
+
+    public function addUtilisateur(Utilisateur $utilisateur): self
+    {
+        if (!$this->utilisateurs->contains($utilisateur)) {
+            $this->utilisateurs->add($utilisateur);
+            $utilisateur->addSondagesRepondu($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUtilisateur(Utilisateur $utilisateur): self
+    {
+        if ($this->utilisateurs->removeElement($utilisateur)) {
+            $utilisateur->removeSondagesRepondu($this);
+        }
+
+        return $this;
+    }
+
+    public function getCreateur(): ?Admin
+    {
+        return $this->createur;
+    }
+
+    public function setCreateur(?Admin $createur): self
+    {
+        $this->createur = $createur;
 
         return $this;
     }

@@ -13,7 +13,9 @@
                 <th>Visbilite</th>
                 <th>Introduction</th>
                 <th>DateCreation</th>
+                <th>Createurs</th>
                 <th>actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -24,6 +26,7 @@
                 <td>{{ sondage.visbilite ? 'Yes' : 'No' }}</td>
                 <td>{{ sondage.introduction }}</td>
                 <td>{{ sondage.dateCreation ? sondage.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ sondage.createur.nom }}</td>
                 <td>
                     <a href="{{ path('app_sondages_show', {'id': sondage.id}) }}">show</a>
                     <a href="{{ path('app_sondages_edit', {'id': sondage.id}) }}">edit</a>

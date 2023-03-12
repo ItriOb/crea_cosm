@@ -95,46 +95,52 @@ class __TwigTemplate_cacd91fd696ed40b7494d0f03deb1bf5 extends Template
                 <th>Visbilite</th>
                 <th>Introduction</th>
                 <th>DateCreation</th>
+                <th>Createurs</th>
                 <th>actions</th>
+
             </tr>
         </thead>
         <tbody>
         ";
-        // line 20
+        // line 22
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["sondages"]) || array_key_exists("sondages", $context) ? $context["sondages"] : (function () { throw new RuntimeError('Variable "sondages" does not exist.', 20, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["sondages"]) || array_key_exists("sondages", $context) ? $context["sondages"] : (function () { throw new RuntimeError('Variable "sondages" does not exist.', 22, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["sondage"]) {
-            // line 21
+            // line 23
             echo "            <tr>
                 <td>";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sondage"], "id", [], "any", false, false, false, 22), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sondage"], "nom", [], "any", false, false, false, 23), "html", null, true);
-            echo "</td>
-                <td>";
             // line 24
-            echo ((twig_get_attribute($this->env, $this->source, $context["sondage"], "visbilite", [], "any", false, false, false, 24)) ? ("Yes") : ("No"));
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sondage"], "id", [], "any", false, false, false, 24), "html", null, true);
             echo "</td>
                 <td>";
             // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sondage"], "introduction", [], "any", false, false, false, 25), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sondage"], "nom", [], "any", false, false, false, 25), "html", null, true);
             echo "</td>
                 <td>";
             // line 26
-            ((twig_get_attribute($this->env, $this->source, $context["sondage"], "dateCreation", [], "any", false, false, false, 26)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sondage"], "dateCreation", [], "any", false, false, false, 26), "Y-m-d H:i:s"), "html", null, true))) : (print ("")));
+            echo ((twig_get_attribute($this->env, $this->source, $context["sondage"], "visbilite", [], "any", false, false, false, 26)) ? ("Yes") : ("No"));
+            echo "</td>
+                <td>";
+            // line 27
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sondage"], "introduction", [], "any", false, false, false, 27), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 28
+            ((twig_get_attribute($this->env, $this->source, $context["sondage"], "dateCreation", [], "any", false, false, false, 28)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sondage"], "dateCreation", [], "any", false, false, false, 28), "Y-m-d H:i:s"), "html", null, true))) : (print ("")));
+            echo "</td>
+                <td>";
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["sondage"], "createur", [], "any", false, false, false, 29), "nom", [], "any", false, false, false, 29), "html", null, true);
             echo "</td>
                 <td>
                     <a href=\"";
-            // line 28
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_sondages_show", ["id" => twig_get_attribute($this->env, $this->source, $context["sondage"], "id", [], "any", false, false, false, 28)]), "html", null, true);
+            // line 31
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_sondages_show", ["id" => twig_get_attribute($this->env, $this->source, $context["sondage"], "id", [], "any", false, false, false, 31)]), "html", null, true);
             echo "\">show</a>
                     <a href=\"";
-            // line 29
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_sondages_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["sondage"], "id", [], "any", false, false, false, 29)]), "html", null, true);
+            // line 32
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_sondages_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["sondage"], "id", [], "any", false, false, false, 32)]), "html", null, true);
             echo "\">edit</a>
                 </td>
             </tr>
@@ -142,7 +148,7 @@ class __TwigTemplate_cacd91fd696ed40b7494d0f03deb1bf5 extends Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 33
+            // line 36
             echo "            <tr>
                 <td colspan=\"6\">no records found</td>
             </tr>
@@ -151,12 +157,12 @@ class __TwigTemplate_cacd91fd696ed40b7494d0f03deb1bf5 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sondage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 40
         echo "        </tbody>
     </table>
 
     <a href=\"";
-        // line 40
+        // line 43
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_sondages_new");
         echo "\">Create new</a>
 ";
@@ -180,7 +186,7 @@ class __TwigTemplate_cacd91fd696ed40b7494d0f03deb1bf5 extends Template
 
     public function getDebugInfo()
     {
-        return array (  160 => 40,  155 => 37,  146 => 33,  137 => 29,  133 => 28,  128 => 26,  124 => 25,  120 => 24,  116 => 23,  112 => 22,  109 => 21,  104 => 20,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  166 => 43,  161 => 40,  152 => 36,  143 => 32,  139 => 31,  134 => 29,  130 => 28,  126 => 27,  122 => 26,  118 => 25,  114 => 24,  111 => 23,  106 => 22,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -200,7 +206,9 @@ class __TwigTemplate_cacd91fd696ed40b7494d0f03deb1bf5 extends Template
                 <th>Visbilite</th>
                 <th>Introduction</th>
                 <th>DateCreation</th>
+                <th>Createurs</th>
                 <th>actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -211,6 +219,7 @@ class __TwigTemplate_cacd91fd696ed40b7494d0f03deb1bf5 extends Template
                 <td>{{ sondage.visbilite ? 'Yes' : 'No' }}</td>
                 <td>{{ sondage.introduction }}</td>
                 <td>{{ sondage.dateCreation ? sondage.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ sondage.createur.nom }}</td>
                 <td>
                     <a href=\"{{ path('app_sondages_show', {'id': sondage.id}) }}\">show</a>
                     <a href=\"{{ path('app_sondages_edit', {'id': sondage.id}) }}\">edit</a>

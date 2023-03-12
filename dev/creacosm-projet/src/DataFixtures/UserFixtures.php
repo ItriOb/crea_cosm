@@ -20,7 +20,7 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
 
-        $user = new Utilisateur();
+       $user = new Utilisateur();
         $user->setPassword($this->passwordHasher->hashPassword($user, "admin"))
             ->setLogin("admin")
             ->setVille("Orleans")
