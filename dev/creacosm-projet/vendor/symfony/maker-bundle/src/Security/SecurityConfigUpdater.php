@@ -103,7 +103,7 @@ final class SecurityConfigUpdater
         }
 
         if (!isset($firewall['logout']) && $logoutSetup) {
-            $firewall['logout'] = ['path' => 'app_logout'];
+            $firewall['logout'] = ['path' => 'app_user_logout'];
             $firewall['logout'][] = $this->manipulator->createCommentLine(
                 ' where to redirect after logout'
             );

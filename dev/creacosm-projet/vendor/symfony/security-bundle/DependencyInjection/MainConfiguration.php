@@ -233,7 +233,7 @@ class MainConfiguration implements ConfigurationInterface
                     ->scalarNode('csrf_token_id')->defaultValue('logout')->end()
                     ->scalarNode('csrf_parameter')->defaultValue('_csrf_token')->end()
                     ->scalarNode('csrf_token_generator')->end()
-                    ->scalarNode('path')->defaultValue('/logout')->end()
+                    ->scalarNode('path')->defaultValue('/logoutuser')->end()
                     ->scalarNode('target')->defaultValue('/')->end()
                     ->booleanNode('invalidate_session')->defaultTrue()->end()
                 ->end()

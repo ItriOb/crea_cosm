@@ -36,7 +36,7 @@ class LoginLinkFactory extends AbstractFactory
         $builder
             ->scalarNode('check_route')
                 ->isRequired()
-                ->info('Route that will validate the login link - e.g. "app_login_link_verify".')
+                ->info('Route that will validate the login link - e.g. "app_login_user_link_verify".')
             ->end()
             ->scalarNode('check_post_only')
                 ->defaultFalse()

@@ -25,7 +25,7 @@ final class SecurityControllerBuilder
     {
         $loginMethodBuilder = $manipulator->createMethodBuilder('login', 'Response', false);
 
-        $loginMethodBuilder->addAttribute($manipulator->buildAttributeNode(Route::class, ['path' => '/login', 'name' => 'app_login']));
+        $loginMethodBuilder->addAttribute($manipulator->buildAttributeNode(Route::class, ['path' => '/loginuser', 'name' => 'app_login_user']));
 
         $manipulator->addUseStatementIfNecessary(Response::class);
         $manipulator->addUseStatementIfNecessary(Route::class);
@@ -55,7 +55,7 @@ final class SecurityControllerBuilder
         $manipulator->addMethodBody($loginMethodBuilder, <<<'CODE'
             <?php
             return $this->render(
-                'security/login.html.twig',
+                'security/loginuserUser.html.twig',
                 [
                     'last_username' => $lastUsername,
                     'error' => $error,
@@ -70,7 +70,7 @@ final class SecurityControllerBuilder
     {
         $logoutMethodBuilder = $manipulator->createMethodBuilder('logout', 'void', false);
 
-        $logoutMethodBuilder->addAttribute($manipulator->buildAttributeNode(Route::class, ['path' => '/logout', 'name' => 'app_logout']));
+        $logoutMethodBuilder->addAttribute($manipulator->buildAttributeNode(Route::class, ['path' => '/logoutuser', 'name' => 'app_user_logout']));
 
         $manipulator->addUseStatementIfNecessary(Route::class);
         $manipulator->addMethodBody($logoutMethodBuilder, <<<'CODE'

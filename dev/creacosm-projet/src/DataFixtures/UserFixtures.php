@@ -21,8 +21,8 @@ class UserFixtures extends Fixture
     {
 
        $user = new Utilisateur();
-        $user->setPassword($this->passwordHasher->hashPassword($user, "admin"))
-            ->setLogin("admin")
+        $user->setPassword($this->passwordHasher->hashPassword($user, "admin1"))
+            ->setLogin("admin1")
             ->setVille("Orleans")
             ->setName("Admin")
             ->setPrenom("Admin")
@@ -30,6 +30,8 @@ class UserFixtures extends Fixture
             ->setGenre("M")
             ->setAge(20);
         $manager->persist($user);
+
+
         $manager->flush();
     }
 }

@@ -18,7 +18,7 @@ RUN wget https://get.symfony.com/cli/installer -O - | bash \
 && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 
 # Gestion user
-# RUN echo "UID_MAX $UID" > /etc/login.defs
+# RUN echo "UID_MAX $UID" > /etc/loginuser.defs
 # RUN /usr/sbin/useradd --create-home -s /bin/sh -u "$UID" $GOODUSER
 # USER $GOODUSER
 

@@ -179,7 +179,7 @@ final class MakeAuthenticator extends AbstractMaker
             $input->setArgument(
                 'logout-setup',
                 $io->confirm(
-                    'Do you want to generate a \'/logout\' URL?',
+                    'Do you want to generate a \'/logoutuser\' URL?',
                     true
                 )
             );
@@ -288,7 +288,7 @@ final class MakeAuthenticator extends AbstractMaker
 
         $this->generator->generateClass(
             $authenticatorClass,
-            'authenticator/LoginFormAuthenticator.tpl.php',
+            'authenticator/loginuserFormAuthenticator.tpl.php',
             [
                 'use_statements' => $useStatements,
                 'user_fully_qualified_class_name' => trim($userClassNameDetails->getFullName(), '\\'),
@@ -348,8 +348,8 @@ final class MakeAuthenticator extends AbstractMaker
 
         // create login form template
         $this->generator->generateTemplate(
-            'security/login.html.twig',
-            'authenticator/login_form.tpl.php',
+            'security/loginuserUser.html.twig',
+            'authenticator/loginuser_form.tpl.php',
             [
                 'username_field' => $userNameField,
                 'username_is_email' => false !== stripos($userNameField, 'email'),
@@ -382,7 +382,7 @@ final class MakeAuthenticator extends AbstractMaker
                 $nextTexts[] = sprintf('- Review <info>%s::getUser()</info> to make sure it matches your needs.', $authenticatorClass);
             }
 
-            $nextTexts[] = '- Review & adapt the login template: <info>'.$this->fileManager->getPathForTemplate('security/login.html.twig').'</info>.';
+            $nextTexts[] = '- Review & adapt the login template: <info>'.$this->fileManager->getPathForTemplate('security/loginuserUser.html.twig').'</info>.';
         }
 
         return $nextTexts;

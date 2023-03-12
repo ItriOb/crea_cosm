@@ -48,7 +48,7 @@ class LogoutListener extends AbstractListener
         $this->options = array_merge([
             'csrf_parameter' => '_csrf_token',
             'csrf_token_id' => 'logout',
-            'logout_path' => '/logout',
+            'logout_path' => '/logoutuser',
         ], $options);
         $this->csrfTokenManager = $csrfTokenManager;
         $this->eventDispatcher = $eventDispatcher;

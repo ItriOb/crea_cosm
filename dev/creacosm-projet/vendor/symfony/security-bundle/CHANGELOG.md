@@ -255,7 +255,7 @@ CHANGELOG
    configuration).
 
  * [BC BREAK] The Firewall listener is now registered after the Router one. This
-   means that specific Firewall URLs (like /login_check and /logout must now
+   means that specific Firewall URLs (like /loginuser_check and /logoutuser must now
    have proper route defined in your routing configuration)
 
  * [BC BREAK] refactored the user provider configuration. The configuration
@@ -306,7 +306,7 @@ CHANGELOG
         firewalls:
             default:
                 logout:
-                    path: /logout_path
+                    path: /logoutuser_path
                     target: /
                     csrf_parameter: _csrf_token                   # Optional (defaults to "_csrf_token")
                     csrf_provider:  security.csrf.token_generator # Required to enable protection

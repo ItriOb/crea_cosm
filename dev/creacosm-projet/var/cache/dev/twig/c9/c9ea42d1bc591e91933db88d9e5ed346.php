@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* security/login.html.twig */
+/* security/loginuserUser.html.twig */
 class __TwigTemplate_b466cf3169748b7be66d0958f742fbb0 extends Template
 {
     private $source;
@@ -40,12 +40,12 @@ class __TwigTemplate_b466cf3169748b7be66d0958f742fbb0 extends Template
     {
         $macros = $this->macros;
         $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "security/login.html.twig"));
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "security/loginuserUser.html.twig"));
 
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "security/login.html.twig"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "security/loginuserUser.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "security/login.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "security/loginuserUser.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -106,7 +106,7 @@ class __TwigTemplate_b466cf3169748b7be66d0958f742fbb0 extends Template
             // line 13
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 13, $this->source); })()), "user", [], "any", false, false, false, 13), "userIdentifier", [], "any", false, false, false, 13), "html", null, true);
             echo ", <a href=\"";
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_logout");
             echo "\">Logout</a>
         </div>
     ";
@@ -147,7 +147,7 @@ class __TwigTemplate_b466cf3169748b7be66d0958f742fbb0 extends Template
 
     public function getTemplateName()
     {
-        return "security/login.html.twig";
+        return "security/loginuserUser.html.twig";
     }
 
     public function isTraitable()
@@ -174,7 +174,7 @@ class __TwigTemplate_b466cf3169748b7be66d0958f742fbb0 extends Template
 
     {% if app.user %}
         <div class=\"mb-3\">
-            You are logged in as {{ app.user.userIdentifier }}, <a href=\"{{ path('app_logout') }}\">Logout</a>
+            You are logged in as {{ app.user.userIdentifier }}, <a href=\"{{ path('app_user_logout') }}\">Logout</a>
         </div>
     {% endif %}
 
@@ -204,6 +204,6 @@ class __TwigTemplate_b466cf3169748b7be66d0958f742fbb0 extends Template
     </button>
 </form>
 {% endblock %}
-", "security/login.html.twig", "/var/www/html/creacosm-projet/templates/security/login.html.twig");
+", "security/loginuserUser.html.twig", "/var/www/html/creacosm-projet/templates/security/loginuserUser.html.twig");
     }
 }

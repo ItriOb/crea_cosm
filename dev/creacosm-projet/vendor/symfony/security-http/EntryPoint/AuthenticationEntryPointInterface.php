@@ -34,7 +34,7 @@ interface AuthenticationEntryPointInterface
      *
      * - For a form login, you might redirect to the login page
      *
-     *     return new RedirectResponse('/login');
+     *     return new RedirectResponse('/loginuser');
      *
      * - For an API token authentication system, you return a 401 response
      *

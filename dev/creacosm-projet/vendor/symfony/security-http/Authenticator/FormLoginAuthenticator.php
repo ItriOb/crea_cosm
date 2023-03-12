@@ -56,7 +56,7 @@ class FormLoginAuthenticator extends AbstractLoginFormAuthenticator
         $this->options = array_merge([
             'username_parameter' => '_username',
             'password_parameter' => '_password',
-            'check_path' => '/login_check',
+            'check_path' => '/loginuser_check',
             'post_only' => true,
             'form_only' => false,
             'enable_csrf' => false,

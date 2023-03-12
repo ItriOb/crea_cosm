@@ -83,13 +83,13 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
             echo "\">Mon compte</a>
             <a href=\"";
             // line 22
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_logout");
             echo "\">Déconnexion</a>
         ";
         } else {
             // line 24
             echo "            <a href=\"";
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login_user");
             echo "\">Connexion</a>
             <a href=\"";
             // line 25
@@ -241,9 +241,9 @@ class __TwigTemplate_d402b493fbf0345f1cc863af05897ca9 extends Template
 
         {% if app.user %}
             <a href=\"{{ path('app_moncompte') }}\">Mon compte</a>
-            <a href=\"{{ path('app_logout') }}\">Déconnexion</a>
+            <a href=\"{{ path('app_user_logout') }}\">Déconnexion</a>
         {% else %}
-            <a href=\"{{ path('app_login') }}\">Connexion</a>
+            <a href=\"{{ path('app_login_user') }}\">Connexion</a>
             <a href=\"{{ path('app_incription') }}\">Inscription</a>
         {% endif %}
 

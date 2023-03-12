@@ -39,7 +39,7 @@
         "symfony/security-csrf": "<5.4"
     },
     "suggest": {
-        "symfony/security-csrf": "For using tokens to protect authentication/logout attempts",
+        "symfony/security-csrf": "For using tokens to protect authentication/logoutuser attempts",
         "symfony/routing": "For using the HttpUtils class to create sub-requests, redirect the user, and match URLs"
     },
     "autoload": {

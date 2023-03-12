@@ -39,7 +39,7 @@ class DefaultAuthenticationFailureHandler implements AuthenticationFailureHandle
     protected $defaultOptions = [
         'failure_path' => null,
         'failure_forward' => false,
-        'login_path' => '/login',
+        'login_path' => '/loginuser',
         'failure_path_parameter' => '_failure_path',
     ];
 

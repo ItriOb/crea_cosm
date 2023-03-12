@@ -8558,7 +8558,7 @@
             },
             "suggest": {
                 "symfony/routing": "For using the HttpUtils class to create sub-requests, redirect the user, and match URLs",
-                "symfony/security-csrf": "For using tokens to protect authentication/logout attempts"
+                "symfony/security-csrf": "For using tokens to protect authentication/logoutuser attempts"
             },
             "time": "2023-01-30T15:46:28+00:00",
             "type": "library",

@@ -27,16 +27,16 @@ use Symfony\Component\DependencyInjection\Reference;
 abstract class AbstractFactory implements AuthenticatorFactoryInterface
 {
     protected $options = [
-        'check_path' => '/login_check',
+        'check_path' => '/loginuser_check',
         'use_forward' => false,
         'require_previous_session' => false,
-        'login_path' => '/login',
+        'login_path' => '/loginuser',
     ];
 
     protected $defaultSuccessHandlerOptions = [
         'always_use_default_target_path' => false,
         'default_target_path' => '/',
-        'login_path' => '/login',
+        'login_path' => '/loginuser',
         'target_path_parameter' => '_target_path',
         'use_referer' => false,
     ];
@@ -44,7 +44,7 @@ abstract class AbstractFactory implements AuthenticatorFactoryInterface
     protected $defaultFailureHandlerOptions = [
         'failure_path' => null,
         'failure_forward' => false,
-        'login_path' => '/login',
+        'login_path' => '/loginuser',
         'failure_path_parameter' => '_failure_path',
     ];
 
