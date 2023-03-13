@@ -1,0 +1,25 @@
+version: '3'
+services:
+  php-fpm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        GOODUSER: tristan
+        UID: 1000
+        MAIL: wassim.oulhadj@etu.univ-orleans.fr
+        NOM: "tristan"
+    container_name: container
+    volumes:
+      - ./dev:/var/www/html
+    ports:
+      - "5000:8000"
+    environment:
+      PHP_IDE_CONFIG: serverName=toto
+  database:
+    image: postgres:${POSTGRES_VERSION:-15}-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-dbcreacosm}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-1234}
+      POSTGRES_USER: ${POSTGRES_USER:-user}
+    restart: always
